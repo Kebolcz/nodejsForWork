@@ -77,4 +77,8 @@ MongoClient.connect(mongourl, function (err, db) {
             console.log("push info to this one");
         }
     });
+    /*
+     *  一次连接中,程序处理完成后,需要关闭连接!执行操作后释放连接!不然会超过资源使用限制,导致服务器端口大量被占用.
+     */
+    db.close();
 });
